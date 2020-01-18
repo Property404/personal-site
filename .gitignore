@@ -1,0 +1,10 @@
+*
+!*.js
+!*.css
+!*.html
+!*.php
+!.gitignore
+!package.json
+!package-lock.json
+!css
+
