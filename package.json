@@ -4,9 +4,7 @@
   "description": "Dagan's personal site",
   "main": "index.js",
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "fontawesome": "^5.6.3",
-    "jquery": "^3.4.1"
+    "bootstrap": "^4.4.1"
   },
   "devDependencies": {},
   "scripts": {
