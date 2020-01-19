@@ -1,5 +1,6 @@
 *
 !*.js
+!*.mjs
 !*.css
 !*.html
 !*.php
