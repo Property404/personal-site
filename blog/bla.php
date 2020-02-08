@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -6,16 +5,15 @@
     <meta name="description" content="How many Dagans? Just the one, until the cloner works">
     <meta name="author" content="Dagan Martinez">
 
-    <title>403</title>
+    <title>Dagan Martinez - Firmware Developer</title>
 
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
   </head>
-
-  <body class="text-center">
-	  <main>
-	  <h1>403</h1>
-	  Username is not in the sudoers file. This incident will be reported
-	  </main>
+	<body>
+<?php
+include ("/headers/session.php");
+Session::connectDB();
+?>
   </body>
 </html>
