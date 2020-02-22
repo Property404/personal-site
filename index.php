@@ -18,18 +18,24 @@
       <header class="masthead mb-auto">
         <div class="inner">
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" id="link-default" href="#">Home</a>
-            <a class="nav-link" id="link-skills" href="#skills">Skills</a>
-            <a class="nav-link" id="link-experience" href="#experience">Experience</a>
+            <a class="nav-link" id="link-default" href="?page=cover.html">Home</a>
+            <a class="nav-link" id="link-skills" href="?page=skills.html">Skills</a>
+            <a class="nav-link" id="link-experience" href="?page=experience.html">Experience</a>
           </nav>
         </div>
       </header>
 
       <main id="content" role="main" class="inner cover">
-		  <noscript>
-			  <h1 class="cover-heading">Javascript Required</h1>
-			  <p class="lead">Sorry :/</p>
-		  </noscript>
+			<?php
+				// PHP fallback
+				$page="cover.html";
+				if(isset($_GET) &&array_key_exists("page", $_GET))
+				{
+					$page = $_GET["page"];
+				}
+				include($_SERVER["DOCUMENT_ROOT"]."/snips/".$page)
+
+			?>
       </main>
 
       <footer class="mastfoot mt-auto">
