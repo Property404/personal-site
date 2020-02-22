@@ -22,10 +22,14 @@
 			*MIN_PASSWORD_LENGTH should be 
 			adjusted to >=8 characters in order
 			to be actually effective.
+
+			*MAX_PASSWORD_LENGTH exists to prevent
+			DOS attacks
 		*/
 		
 		//Public Constants
 		const MIN_PASSWORD_LENGTH=4;//characters
+		const MAX_PASSWORD_LENGTH=512;//characters
 		// Honestly, there should be a better way to do this. Like an initial localhost-only setup
 		// Something I found trivial to do in node/python
 		const DEFAULT_PASSWORD="hunter2";
@@ -58,6 +62,20 @@
 			
 			//Return hash prepended with salt
 			return $salt . "$" . hash_pbkdf2(self::_HASH_ALGO,$password,$salt,self::_HASH_ROUNDS,self::_HASH_LENGTH/4);
+		}
+
+		public static function verifyHash($password, $stored_hash)
+		{
+			if (strlen($password)>Security::MAX_PASSWORD_LENGTH)
+				return false;
+			if (strlen($password)<Security::MIN_PASSWORD_LENGTH)
+				return false;
+			if(security::makeSaltedHash($password, $stored_hash) === $stored_hash)
+			{
+				return true;
+			}
+			return false;
+			
 		}
 		
 	}
