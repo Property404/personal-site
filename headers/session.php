@@ -14,8 +14,18 @@ class Session
 		}
 	}
 
+	private static function initiateSession()
+	{
+			// Workaround for not having permissions
+			// to access whatever the default tmp directory is
+			session_save_path("/tmp");
+
+			session_start();
+	}
+
 	public static function startAdminSession($username, $password)
 	{
+		include_once("dbal.php");
 		Session::redirectToHTTPS();
 
 		// Verify username/password
@@ -26,11 +36,7 @@ class Session
 		// Now we can start a session
 		if(!isset($_SESSION))
 		{
-			// Workaround for not having permissions
-			// to access whatever the default tmp directory is
-			session_save_path("/tmp");
-
-			session_start();
+			Session::initiateSession();
 		}
 
 		// Grant admin privileges
@@ -43,6 +49,10 @@ class Session
 	{
 		session::redirectToHTTPS();
 
+		if(!isset($_SESSION))
+			Session::initiateSession();
+
+
 		if(isset($_SESSION) && array_key_exists('admin_session',$_SESSION)){
 			return true;
 		}
@@ -52,10 +62,9 @@ class Session
 	public static function stopAdminSession()
 	{
 		Session::redirectToHTTPS();
-		if(isset($_SESSION))
-		{
-			session_unset();
-		}
+		Session::initiateSession();
+		$_SESSION['admin_session'] = false;
+		session_unset();
 	}
 }
 ?>
