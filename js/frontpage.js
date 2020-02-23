@@ -41,7 +41,7 @@ async function adjustContent()
 let nav_links = document.getElementsByClassName("nav-link");
 for (let link of nav_links)
 {
-	link.href = link.href.replace("?page=","#").replace(".html","");
+	link.href = link.href.replace("?page=","#");
 }
 
 

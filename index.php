@@ -18,9 +18,9 @@
       <header class="masthead mb-auto">
         <div class="inner">
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" id="link-default" href="?page=cover.html">Home</a>
-            <a class="nav-link" id="link-skills" href="?page=skills.html">Skills</a>
-            <a class="nav-link" id="link-experience" href="?page=experience.html">Experience</a>
+            <a class="nav-link" id="link-default" href="?page=cover">Home</a>
+            <a class="nav-link" id="link-skills" href="?page=skills">Skills</a>
+            <a class="nav-link" id="link-experience" href="?page=experience">Experience</a>
           </nav>
         </div>
       </header>
@@ -28,12 +28,20 @@
       <main id="content" role="main" class="inner cover">
 			<?php
 				// PHP fallback
-				$page="cover.html";
+				$page="cover";
+				$pages=Array(
+					"cover"=>"cover.html",
+					"experience"=>"experience.html",
+					"skills"=>"skills.html"
+				);
+
 				if(isset($_GET) &&array_key_exists("page", $_GET))
 				{
 					$page = $_GET["page"];
+					if(!array_key_exists($page, $pages))
+						$page="cover";
 				}
-				include($_SERVER["DOCUMENT_ROOT"]."/snips/".$page)
+				include($_SERVER["DOCUMENT_ROOT"]."/snips/".$pages[$page])
 
 			?>
       </main>
