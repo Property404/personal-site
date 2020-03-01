@@ -2,6 +2,8 @@
 $docroot = $_SERVER["DOCUMENT_ROOT"];
 include_once($docroot."/headers/config.php");
 include_once($docroot."/headers/dbal.php");
+include_once($docroot."/headers/session.php");
+Session:restrict();
 $pdo = DBAL::connectDB();
 
 // Are we making a new post or editing an old one?

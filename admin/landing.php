@@ -1,3 +1,8 @@
+<?php
+	include($_SERVER["DOCUMENT_ROOT"]."/headers/session.php");
+	Session::restrict();
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
