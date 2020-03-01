@@ -10,6 +10,7 @@
 
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/frontpage.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
@@ -33,6 +34,11 @@
 				{
 					$page = $_GET["page"];
 				}
+
+
+				// Yeah - this is super dangerous.
+				// Fix this
+				// Attacker could access any file with this code
 				include($_SERVER["DOCUMENT_ROOT"]."/snips/".$page)
 
 			?>

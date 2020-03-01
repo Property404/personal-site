@@ -59,6 +59,12 @@ class Session
 		return false;
 	}
 
+	public static function restrict()
+	{
+		if(!Session::isAdminSession())
+			die("Access denied");
+	}
+
 	public static function stopAdminSession()
 	{
 		Session::redirectToHTTPS();
