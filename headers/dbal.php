@@ -160,9 +160,33 @@ class DBAL
 		return $res;
 	}
 
+	public static function getBlog($pdo, $id)
+	{
+		$prep = $pdo->prepare("SELECT * FROM Blogs WHERE id = :id;");
+		$prep->execute(Array(
+			":id" => $id));
+		return $prep->fetchAll()[0];
+	}
+
 	public static function getPost($pdo, $id)
 	{
 		$prep = $pdo->prepare("SELECT * FROM Posts WHERE id = :id;");
+		$prep->execute(Array(
+			":id" => $id));
+		return $prep->fetchAll()[0];
+	}
+
+	public static function deletePost($pdo, $id)
+	{
+		$prep = $pdo->prepare("DELETE FROM Posts WHERE id = :id;");
+		$prep->execute(Array(
+			":id" => $id));
+		return $prep->fetchAll()[0];
+	}
+
+	public static function deleteBlog($pdo, $id)
+	{
+		$prep = $pdo->prepare("DELETE FROM Blogs WHERE id = :id;");
 		$prep->execute(Array(
 			":id" => $id));
 		return $prep->fetchAll()[0];

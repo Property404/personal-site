@@ -127,3 +127,23 @@ body.text-center {
   border-top-right-radius: 0;
 }
 
+/* Modal */
+.modal-content{
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	border-color: var(--input-border-color)
+}
+button.close, button.close:hover{
+	color: var(--text-color)
+}
+/* No annoying lines*/
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.modal-footer {
+    border-top: 0 none;
+}
+
+
+
