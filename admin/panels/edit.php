@@ -55,10 +55,16 @@ foreach($blogs as $blog)
 <!-- Body text -->
 <textarea id="body-textarea" name="body"></textarea>
 
-<!-- Submit -->
+
+
 		<div id='row-template' class='row'>
-			<div class='col-lg-10'> </div>
+			<div class='col-lg-9'> </div>
+<!-- Publish check -->
+			<div class='col-lg-1 form-check'>
+			<input checked='<?php echo($mode==MODE_CREATE?0:$details["published"]);?>' name='publish' type='checkbox' class='form-control form-check-input'>
+			</div>
 			<div class='col-lg-2'>
+<!-- Submit -->
 <button class="btn btn-lg btn-primary btn-block" type="submit" id='button'>
 	<?php echo($mode==MODE_CREATE?"Post":"Update") ?>
 </button>

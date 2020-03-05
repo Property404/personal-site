@@ -15,17 +15,20 @@ class DBAL
 						);";
 
 	const _BLOGS_TABLE_DEFINITION="
-		CREATE TABLE IF NOT EXISTS Blogs (id INT AUTO_INCREMENT, name CHAR(16), PRIMARY KEY(id));
+		CREATE TABLE IF NOT EXISTS Blogs (
+			id INT AUTO_INCREMENT,
+			name CHAR(16) NOT NULL,
+			PRIMARY KEY(id));
 	";
 
 	const _POSTS_TABLE_DEFINITION="CREATE TABLE IF NOT EXISTS Posts (
 		id INT AUTO_INCREMENT,
-		blog_id INT,
-		time_created TIMESTAMP,
-		time_modified TIMESTAMP,
-		title TEXT,
-		body TEXT,
-		published BOOL DEFAULT false,
+		blog_id INT NOT NULL,
+		time_created TIMESTAMP NOT NULL,
+		time_modified TIMESTAMP NOT NULL,
+		title TEXT NOT NULL,
+		body TEXT NOT NULL,
+		published BOOL DEFAULT false NOT NULL,
 		PRIMARY KEY (id),
 		FOREIGN KEY (blog_id) REFERENCES Blogs(id)
 	);";
