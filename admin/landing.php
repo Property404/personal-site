@@ -26,15 +26,16 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
-              <li class="nav-item"> <a class="nav-link active" href="#">
-                  <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
-                </a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="?panel=posts">
                   <span data-feather="file"></span>
                   Posts
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="?panel=blogs">
+                  <span data-feather="briefcase" ></span>
+                  Blogs
                 </a>
               </li>
               <li class="nav-item">
@@ -67,6 +68,7 @@
 include($_SERVER["DOCUMENT_ROOT"]."/headers/config.php");
 $panels = Array(
 "posts"=>"./panels/posts.php",
+"blogs"=>"./panels/blogs.php",
 "edit"=>"./panels/edit.php",
 "php_info"=>"./panels/php_info.php"
 );

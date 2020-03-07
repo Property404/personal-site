@@ -157,6 +157,7 @@ class DBAL
 		$res = $pdo->query("SELECT * FROM Blogs;")->fetchAll();
 		return $res;
 	}
+
 	public static function getPosts($pdo)
 	{
 		$res = $pdo->query("SELECT * FROM Posts;")->fetchAll();
