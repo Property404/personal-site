@@ -1,5 +1,5 @@
 "use strict";
-import {httpGetRequestAsync, getUrlAnchor} from '/js/common.mjs'
+import {httpGetRequestAsync, parseUrlParameters} from '/js/common.mjs'
 const DEFAULT_PAGE = "cover.html"
 const snips = {
 "default":"cover.html",
@@ -8,9 +8,9 @@ const snips = {
 };
 
 // Adjust content according to URL
-async function adjustContent()
+export async function adjustContent()
 {
-	let anchor = getUrlAnchor();
+	let anchor = parseUrlParameters()["page"];
 	let snip = snips["default"];
 
 	if (snips[anchor])
@@ -41,10 +41,14 @@ async function adjustContent()
 let nav_links = document.getElementsByClassName("nav-link");
 for (let link of nav_links)
 {
-	link.href = link.href.replace("?page=","#");
+
+	link.setAttribute("meta",link.href+"#");
+
+	link.onclick = function(){
+		history.replaceState(null,'',this.getAttribute("meta"));
+		adjustContent()
+	}
+	link.href = "#"; 
 }
 
-
-
 adjustContent();
-window.onhashchange = adjustContent;
