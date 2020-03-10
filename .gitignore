@@ -7,11 +7,6 @@
 !.gitignore
 !package.json
 !package-lock.json
-!css
-!snips
-!js
-!blog
-!admin
-!admin/panels
-!headers
+!**/**
+node_modules
 
