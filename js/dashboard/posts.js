@@ -29,6 +29,7 @@ function addPostEntry(post)
 	item.removeAttribute("hidden");
 	item.querySelector("#title").innerHTML = post["title"]
 	item.querySelector("#delete-link").setAttribute("href", "#"+post["id"]);
+	item.querySelector("#edit-link").setAttribute("href", "?panel=edit&id="+post["id"]);
 	post_list_div.appendChild(item);
 }
 async function fillPostEntries()
