@@ -7,13 +7,6 @@
 
 class Session
 {
-	private static function redirectToHTTPS()
-	{
-		if (!isset($_SERVER['HTTPS']) || !$_SERVER['HTTPS']) {
-			header("Location: https://".$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]);
-		}
-	}
-
 	private static function initiateSession()
 	{
 			// Workaround for not having permissions
@@ -26,7 +19,6 @@ class Session
 	public static function startAdminSession($username, $password)
 	{
 		include_once("dbal.php");
-		Session::redirectToHTTPS();
 
 		// Verify username/password
 		$pdo = DBAL::connectDB();
@@ -47,8 +39,6 @@ class Session
 
 	public static function isAdminSession()
 	{
-		session::redirectToHTTPS();
-
 		if(!isset($_SESSION))
 			Session::initiateSession();
 
@@ -62,12 +52,14 @@ class Session
 	public static function restrict()
 	{
 		if(!Session::isAdminSession())
+		{
+			header("Location: /cms/login/", true, 302);
 			die("Access denied");
+		}
 	}
 
 	public static function stopAdminSession()
 	{
-		Session::redirectToHTTPS();
 		Session::initiateSession();
 		$_SESSION['admin_session'] = false;
 		session_unset();
