@@ -4,7 +4,7 @@ include($docroot."/headers/config.php");
 include($docroot."/headers/session.php");
 if(Session::isAdminSession())
 {
-	header("Location: /admin/landing.php");
+	header("Location: /cms");
 }
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ if(Session::isAdminSession())
     <link href="/css/main.css" rel="stylesheet">
   </head>
 	<body class="text-center">
-		<form id="form" class="form-signin" action="actions/validate.php" method="post">
+		<form id="form" class="form-signin" action="/cms/actions/validate.php" method="post">
 			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 			<div id="error" class="alert alert-danger" hidden>
 				<strong>Invalid credentials</strong>

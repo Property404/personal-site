@@ -83,9 +83,15 @@ class DBAL
 	{
 		$prep = $pdo->prepare("INSERT INTO Blogs (name) VALUES (:name);");
 		$res = $prep->execute(Array(":name"=>$blog_name));
-		if($res)
-			return true;
-		return false;
+		if(!($res))
+			return false;
+		
+		$prep = $pdo->prepare("SELECT * FROM Blogs WHERE name = :name;");
+
+		$res = $prep->execute(Array(":name"=>$blog_name));
+		$res = $prep->fetchAll();
+		return $res;
+		
 	}
 
 	public static function addPost($pdo, $blog_name, $title, $body, $published)
@@ -172,6 +178,13 @@ class DBAL
 		return $prep->fetchAll()[0];
 	}
 
+	public static function getLastPost($pdo)
+	{
+		$prep = $pdo->query("SELECT * FROM Posts;");
+		$rows = $prep->fetchAll();
+		return $rows[count($rows)-1];
+	}
+
 	public static function getPost($pdo, $id)
 	{
 		$prep = $pdo->prepare("SELECT * FROM Posts WHERE id = :id;");
@@ -183,17 +196,15 @@ class DBAL
 	public static function deletePost($pdo, $id)
 	{
 		$prep = $pdo->prepare("DELETE FROM Posts WHERE id = :id;");
-		$prep->execute(Array(
+		return $prep->execute(Array(
 			":id" => $id));
-		return $prep->fetchAll()[0];
 	}
 
 	public static function deleteBlog($pdo, $id)
 	{
 		$prep = $pdo->prepare("DELETE FROM Blogs WHERE id = :id;");
-		$prep->execute(Array(
+		return $prep->execute(Array(
 			":id" => $id));
-		return $prep->fetchAll()[0];
 	}
 }
 

@@ -35,7 +35,7 @@ $body = $mode==MODE_CREATE?"":escape($details["body"]);
 <h1 class="h2"><?php echo($mode==MODE_CREATE?"Create":"Edit")?> Post</h1>
 </div>
 
-<form action="/admin/actions/create_or_update_post.php<?php if($mode==MODE_EDIT)echo("?id=".$id)?>" method="POST">
+<form action="/cms/actions/create_or_update_post.php<?php if($mode==MODE_EDIT)echo("?id=".$id)?>" method="POST">
 
 
 <!-- Title text -->

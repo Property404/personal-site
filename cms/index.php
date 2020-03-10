@@ -15,7 +15,6 @@
     <title>Dashboard</title>
 
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="/node_modules/codemirror/lib/codemirror.css">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/dashboard.css" rel="stylesheet">
@@ -52,7 +51,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/admin/actions/logout.php">
+                <a class="nav-link" href="/cms/actions/logout.php">
                   <span data-feather="log-out"></span>
                   Sign out
                 </a>
@@ -67,8 +66,8 @@
 		<?php
 include($_SERVER["DOCUMENT_ROOT"]."/headers/config.php");
 $panels = Array(
-"posts"=>"./panels/posts.php",
-"blogs"=>"./panels/blogs.php",
+"posts"=>"./panels/posts.html",
+"blogs"=>"./panels/blogs.html",
 "edit"=>"./panels/edit.php",
 "php_info"=>"./panels/php_info.php"
 );
