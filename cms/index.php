@@ -43,13 +43,6 @@
                   Server Info
                 </a>
               </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="settings"></span>
-                  Settings
-                </a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="/cms/actions/logout.php">
                   <span data-feather="log-out"></span>
