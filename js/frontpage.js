@@ -1,10 +1,12 @@
 "use strict";
-import {httpGetRequestAsync, parseUrlParameters} from '/js/common.mjs'
+import {httpGetRequestAsync, getUrlGETQuery, parseUrlParameters} from '/js/common.mjs'
 const DEFAULT_PAGE = "cover.html"
 const snips = {
 "default":"cover.html",
 "experience":"experience.html",
-"skills":"skills.html"
+"skills":"skills.html",
+"blog":"blog.php",
+"post":"post.php",
 };
 
 // Adjust content according to URL
@@ -22,16 +24,24 @@ export async function adjustContent()
 		anchor="default";
 	}
 
-	const content = await httpGetRequestAsync("/snips/"+snip);
+	// Fetch page content
+	const content = await httpGetRequestAsync("/snips/"+snip+getUrlGETQuery());
 	document.getElementById("content").innerHTML = content;
 
-	// Highlight selected branch
+	// Dehighlight all menu items
 	let nav_links = document.getElementsByClassName("nav-link");
 	for (let link of nav_links)
 	{
 		link.className="nav-link";
 	}
-	document.getElementById("link-"+anchor).className="nav-link active"
+
+	// Highlight "blog" when on any blog post
+	if(anchor=="post")anchor="blog";
+
+	// Highlight/Underscore selected page in menu
+	let active_link = document.getElementById("link-"+anchor);
+	if(active_link)
+		active_link.className="nav-link active"
 }
 
 // Get rid of GET parts of URL links

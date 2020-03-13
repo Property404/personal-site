@@ -22,6 +22,7 @@
             <a class="nav-link" id="link-default" href="?page=cover">Home</a>
             <a class="nav-link" id="link-skills" href="?page=skills">Skills</a>
             <a class="nav-link" id="link-experience" href="?page=experience">Experience</a>
+            <a class="nav-link" id="link-blog" href="?page=blog">Blog</a>
           </nav>
         </div>
       </header>
@@ -33,7 +34,9 @@
 				$pages=Array(
 					"cover"=>"cover.html",
 					"experience"=>"experience.html",
-					"skills"=>"skills.html"
+					"skills"=>"skills.html",
+					"blog"=>"blog.php",
+					"post"=>"post.php"
 				);
 
 				if(isset($_GET) &&array_key_exists("page", $_GET))
@@ -42,7 +45,7 @@
 					if(!array_key_exists($page, $pages))
 						$page="cover";
 				}
-				include($_SERVER["DOCUMENT_ROOT"]."/snips/".$pages[$page])
+				include($_SERVER["DOCUMENT_ROOT"]."/snips/".$pages[$page]);
 
 			?>
       </main>
