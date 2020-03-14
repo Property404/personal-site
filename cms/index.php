@@ -38,6 +38,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="?panel=upload">
+                  <span data-feather="upload"></span>
+                  Upload
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="?panel=php_info">
                   <span data-feather="info"></span>
                   Server Info
@@ -62,7 +68,8 @@ $panels = Array(
 "posts"=>"./panels/posts.html",
 "blogs"=>"./panels/blogs.html",
 "edit"=>"./panels/edit.php",
-"php_info"=>"./panels/php_info.php"
+"php_info"=>"./panels/php_info.php",
+"upload"=>"./panels/upload.html"
 );
 if (key_exists("panel", $_GET))
 	$panel = $_GET["panel"];
