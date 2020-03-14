@@ -1,11 +1,10 @@
 <?php
 // DataBase Abstraction Layer
+include_once("/etc/dbconfig.php");
 class DBAL
 {
-	//Private Constants
-	const _DB_NAME="Dagans";
-	const _DB_USERNAME="root";
-	const _DB_PASSWORD="";
+	// Load DB constants
+	// (DB_NAME, DB_USERNAME, DB_PASSWORD)
 
 	const _USERS_TABLE_DEFINITION="CREATE TABLE IF NOT EXISTS Users (
 		id INT AUTO_INCREMENT,
@@ -60,7 +59,7 @@ class DBAL
 
 	public static function connectDB()
 	{
-		$pdo = new PDO('mysql:host=localhost;dbname='.self::_DB_NAME.';charset=utf8;', self::_DB_USERNAME, self::_DB_PASSWORD);
+		$pdo = new PDO('mysql:host=localhost;dbname='.DB_NAME.';charset=utf8;', DB_USERNAME, DB_PASSWORD);
 		if(!$pdo)
 		{
 			die("<div class='error'>Can't connect to database</div>" );
