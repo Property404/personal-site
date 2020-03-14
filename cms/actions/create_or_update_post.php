@@ -18,6 +18,7 @@
 	$body = $_POST["body"];
 	$blog_name = $_POST["blog_name"];
 	$publish = array_key_exists("publish",$_POST)?1:0;
+	$blurb = substr($body, 0, strpos($body, "\n"));
 	$id = NULL;
 	if(array_key_exists("id", $_GET))
 	{
@@ -27,13 +28,14 @@
 
 	echo("Title: <pre>".$title."</pre>");
 	echo("Body: <pre>".$body."</pre>");
+	echo("Blurb: <pre>".$blurb."</pre>");
 	echo("Blog Name: <pre>".$blog_name."</pre>");
 	echo("Publish: <pre>".$publish."</pre>");
 
 	$status = NULL;
 	if($id === NULL)
 	{
-		$status = DBAL::addPost($pdo, $blog_name, $title, $body, $publish);
+		$status = DBAL::addPost($pdo, $blog_name, $title, $blurb, $body, $publish);
 		$id = DBAL::getLastPost($pdo)["id"];
 	}
 	else

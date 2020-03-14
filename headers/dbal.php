@@ -24,9 +24,11 @@ class DBAL
 	const _POSTS_TABLE_DEFINITION="CREATE TABLE IF NOT EXISTS Posts (
 		id INT AUTO_INCREMENT,
 		blog_id INT NOT NULL,
-		time_created TIMESTAMP NOT NULL,
 		time_modified TIMESTAMP NOT NULL,
+		time_published TIMESTAMP NULL, # NOT a typo!
+		time_created TIMESTAMP NOT NULL,
 		title TEXT NOT NULL,
+		blurb TEXT,
 		body TEXT NOT NULL,
 		published BOOL DEFAULT false NOT NULL,
 		PRIMARY KEY (id),
@@ -119,7 +121,7 @@ class DBAL
 		
 	}
 
-	public static function addPost($pdo, $blog_name, $title, $body, $published)
+	public static function addPost($pdo, $blog_name, $title, $blurb, $body, $published)
 	{
 		try{
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -129,6 +131,7 @@ class DBAL
 						blog_id,
 						time_created,
 						time_modified,
+						time_published,
 						title,
 						body,
 						published
@@ -137,6 +140,7 @@ class DBAL
 						(SELECT id FROM Blogs WHERE name=:blog_name),
 						NOW(),
 						NOW(),
+						if(:write_published_time,  NOW(), null),
 						:title,
 						:body,
 						:published
@@ -146,6 +150,7 @@ class DBAL
 				":blog_name"=>$blog_name,
 				":title"=>$title,
 				":published"=>$published,
+				":write_published_time"=>$published,
 				":body"=>$body
 			));
 			if($res)
@@ -159,25 +164,44 @@ class DBAL
 
 	public static function editPost($pdo, $id, $blog_name, $title, $body, $published)
 	{
-		$prep = $pdo->prepare("
+		try{
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			$prep = $pdo->prepare("
 			UPDATE Posts 
 			SET 
 				blog_id = (SELECT id FROM Blogs WHERE name=:blog_name),
 				time_modified = NOW(),
+				time_published = IF((SELECT time_published FROM Posts WHERE id=:id) IS null,
+				".($published?"NOW()":"null").",(SELECT time_published FROM Posts WHERE id=:id2)),
 				published = :published,
 				title = :title,
 				body = :body
 			WHERE
-				id = :id;
+				id = :id3;
 			");
-					
-		$res = $prep->execute(Array(
-			":blog_name"=>$blog_name,
-			":title"=>$title,
-			":body"=>$body,
-			":published"=>$published,
-			":id"=>$id
-		));
+
+			// Logic flow
+			// if time_published is null:
+			// 		if published:
+			//	 		time_published = NOW()
+			//
+
+			$res = $prep->execute(Array(
+				":blog_name"=>$blog_name,
+				":title"=>$title,
+				":body"=>$body,
+				":published"=>$published,
+				":id"=>$id,
+				":id2"=>$id,
+				":id3"=>$id
+			));
+		}
+		catch(Exception $e)
+		{
+			echo("Caught!!");
+			var_dump($e->getMessage());
+		}
 		if($res)
 			return true;
 		return false;
