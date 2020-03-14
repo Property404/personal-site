@@ -34,16 +34,26 @@ class DBAL
 	);";
 
 
-
-	// Initialize admin table with (admin, DEFAULT_PASSWORD)
-	// (only if uninitialized)
-	private static function setInitialAdminTable($pdo){
-		include_once("security.php");
-		$res = $pdo->query("SELECT * from Users");
-		if (!sizeof($res->fetchAll()))
+	// First-time setup
+	public static function setUpDatabase($pdo)
+	{
+		$pdo = self::connectDB();
+		$success = true;
+		$queries = Array(
+			self::_USERS_TABLE_DEFINITION,
+			self::_BLOGS_TABLE_DEFINITION,
+			self::_POSTS_TABLE_DEFINITION);
+		
+		foreach($queries as $query)
 		{
-			$pdo->query("INSERT INTO Users (hash,username) VALUES('".Security::makeSaltedHash(Security::DEFAULT_PASSWORD) . "','admin');");
+			if (!$pdo->query($query))
+			{
+				print_r($pdo->errorInfo());
+				$success = false;
+			}
 		}
+
+		return $success;
 	}
 
 	public static function connectDB()
@@ -54,19 +64,34 @@ class DBAL
 			die("<div class='error'>Can't connect to database</div>" );
 		}
 
-		if (!$pdo->query(self::_USERS_TABLE_DEFINITION))
-			print_r($pdo->errorInfo());
-		if (!$pdo->query(self::_BLOGS_TABLE_DEFINITION))
-			print_r($pdo->errorInfo());
-		if (!$pdo->query(self::_POSTS_TABLE_DEFINITION))
-			print_r($pdo->errorInfo());
-		self::setInitialAdminTable($pdo);
-
 		return $pdo;
+	}
+
+	public static function userTableIsEmpty($pdo)
+	{
+		$res = $pdo->query("SELECT * from Users;");
+		return !count($res->fetchAll());
+	}
+
+	public static function addUser($pdo, $username, $password)
+	{
+		include_once("security.php");
+		$hash = Security::makeSaltedHash($password);
+		$password = null;
+
+		$prep = $pdo->prepare("INSERT INTO Users (username, hash) VALUES (:username, :hash);");
+		$res = $prep->execute(array(':username'=>$username, ':hash'=>$hash));
+
+		if(! $res)
+		{
+			return false;
+		}
+		return true;
 	}
 
 	public static function verifyUser($pdo, $username, $password)
 	{
+		include_once("security.php");
 		$prep = $pdo->prepare("SELECT hash FROM Users WHERE username = :username;");
 		$prep->execute(array(':username'=>$username));
 		$res = $prep->fetch();

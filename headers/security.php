@@ -30,15 +30,12 @@
 		//Public Constants
 		const MIN_PASSWORD_LENGTH=4;//characters
 		const MAX_PASSWORD_LENGTH=512;//characters
-		// Honestly, there should be a better way to do this. Like an initial localhost-only setup
-		// Something I found trivial to do in node/python
-		const DEFAULT_PASSWORD="hunter2";
 		
 		//"Private" Constants
 		const _SALT_LENGTH=128;//bits
 		const _HASH_LENGTH=256;//bits
-		const _HASH_ALGO="sha256";
-		const _HASH_ROUNDS=193141;/*Hash rounds are delicious.*/
+		const _HASH_ALGO="sha512";
+		const _HASH_ROUNDS=213143;/*Hash rounds are delicious.*/
 
 		//Generate psuedorandom salt
 		private static function genSalt(){
