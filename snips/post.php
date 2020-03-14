@@ -7,7 +7,7 @@
 	$title = $post["title"];
 	$body = $post["body"];
 ?>
-	<h2 id="post-title" ><?php echo( $title); ?></h2>
-<div id="post-content">
+<h2 id="post-title" ><?php echo( $title); ?></h2>
+<article class="post" id="post-content" role="article">
 <?php echo($body); ?>
-</div>
+</article>
