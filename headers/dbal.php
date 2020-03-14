@@ -3,7 +3,7 @@
 class DBAL
 {
 	//Private Constants
-	const _DB_NAME="DagansDotDev";
+	const _DB_NAME="Dagans";
 	const _DB_USERNAME="root";
 	const _DB_PASSWORD="";
 
