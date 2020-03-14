@@ -162,7 +162,7 @@ class DBAL
 		return false;
 	}
 
-	public static function editPost($pdo, $id, $blog_name, $title, $body, $published)
+	public static function editPost($pdo, $id, $blog_name, $title, $blurb, $body, $published)
 	{
 		try{
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -176,6 +176,7 @@ class DBAL
 				".($published?"NOW()":"null").",(SELECT time_published FROM Posts WHERE id=:id2)),
 				published = :published,
 				title = :title,
+				blurb = :blurb,
 				body = :body
 			WHERE
 				id = :id3;
@@ -191,6 +192,7 @@ class DBAL
 				":blog_name"=>$blog_name,
 				":title"=>$title,
 				":body"=>$body,
+				":blurb"=>$blurb,
 				":published"=>$published,
 				":id"=>$id,
 				":id2"=>$id,

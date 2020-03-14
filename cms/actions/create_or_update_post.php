@@ -18,7 +18,9 @@
 	$body = $_POST["body"];
 	$blog_name = $_POST["blog_name"];
 	$publish = array_key_exists("publish",$_POST)?1:0;
-	$blurb = substr($body, 0, strpos($body, "\n"));
+	$blurb = $_POST["blurb"];
+	if(!$blurb || $blurb == "")
+		$blurb = substr($body,0,256)."...";
 	$id = NULL;
 	if(array_key_exists("id", $_GET))
 	{
@@ -40,7 +42,7 @@
 	}
 	else
 	{
-		$status = DBAL::editPost($pdo, $id, $blog_name, $title, $body, $publish);
+		$status = DBAL::editPost($pdo, $id, $blog_name, $title, $blurb, $body, $publish);
 	}
 
 	if(!$status)

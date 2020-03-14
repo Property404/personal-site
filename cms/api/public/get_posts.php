@@ -13,16 +13,22 @@
 		return str_replace("\r\n","\\n",addslashes($string));
 	}
 
-	$blogs = DBAL::getPosts($pdo);
+	$posts = DBAL::getPosts($pdo);
 
 	echo('{"posts":[');
 	$looped = false;
-	foreach($blogs as $blog)
+	foreach($posts as $post)
 	{
 		if($looped)
 			echo(",");
 		$looped = true;
-		echo('{"id":"'.$blog["id"].'","title":"'.$blog["title"].'"}');
+		echo(json_encode(
+			Array(
+				"id"=>$post["id"],
+				"title"=>$post["title"],
+				"published"=>$post["published"],
+				"blurb"=>$post["blurb"]
+			)));
 	}
 	echo("]}");
 ?>

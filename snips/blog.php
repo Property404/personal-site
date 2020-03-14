@@ -11,7 +11,7 @@
 
 		echo("<h2><a id='title' href='?page=post&id=".$post["id"]."'>".$post["title"]."</a></h2>\n");
 		echo("<div id='blurb'>\n");
-		echo($post["body"]);
+		echo($post["blurb"]);
 		echo("</div><p><p>\n");
 
 	}
