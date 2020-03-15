@@ -2,26 +2,27 @@
 import {httpGetRequestAsync, getUrlGETQuery, parseUrlParameters} from '/js/common.mjs'
 const DEFAULT_PAGE = "cover.html"
 const snips = {
-"default":"cover.html",
+"cover":"cover.html",
 "experience":"experience.html",
 "skills":"skills.html",
 "blog":"blog.php",
 "post":"post.php",
+"http_error":"http_error.php",
 };
 
 // Adjust content according to URL
 export async function adjustContent()
 {
 	let anchor = parseUrlParameters()["page"];
-	let snip = snips["default"];
+	if(anchor === undefined && !document.querySelector("#http-error"))
+		anchor="cover";
+	let snip = snips[anchor]
 
-	if (snips[anchor])
+	if(!snip)
 	{
-		snip = snips[anchor];
-	}
-	else
-	{
-		anchor="default";
+		console.log("Note: not replacing content dynamically");
+		console.log(anchor);
+		return;
 	}
 
 	// Fetch page content
@@ -55,10 +56,9 @@ for (let link of nav_links)
 	link.setAttribute("meta",link.href+"#");
 
 	link.onclick = function(){
-		history.replaceState(null,'',this.getAttribute("meta"));
+		history.pushState(null,'',this.getAttribute("meta"));
 		adjustContent()
 	}
 	link.href = "#"; 
 }
-
 adjustContent();
