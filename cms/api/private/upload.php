@@ -3,7 +3,7 @@
 	include($docroot."/headers/config.php");
 	include($docroot."/headers/session.php");
 
-	const UPLOADS_LOCAL_DIR = "/uploads/";
+	const UPLOADS_LOCAL_DIR = "/uploads/cms/";
 	$uploads_abs_path = $docroot.UPLOADS_LOCAL_DIR;
 	Session::restrict();
 
