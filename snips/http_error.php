@@ -22,7 +22,7 @@
 	);
 	$submessages = Array(
 		"403"=>"Username is not in the sudoers file. This incident will be reported",
-		"406"=>'<video width="560" height="315" src="/uploads/videos/406.mp4"></video>',
+		"406"=>'<video width="560" height="315" src="/uploads/videos/406.mp4" controls></video>',
 	);
 
 
