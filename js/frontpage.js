@@ -10,8 +10,21 @@ const snips = {
 "http_error":"http_error.php",
 };
 
+// Hacks to reduce latency for high-latency connections
+// (Tor Browser)
+async function cacheFetchPages()
+{
+	for(let snip in snips)
+	{
+		const page = snips[snip];
+		if(page.endsWith(".html"))
+			httpGetRequestAsync("/snips/"+page+"?page="+snip);
+	}
+
+}
+
 // Adjust content according to URL
-export async function adjustContent()
+export async function adjustContent(dry=false)
 {
 	let anchor = parseUrlParameters()["page"];
 	if(anchor === undefined && !document.querySelector("#http-error"))
@@ -26,8 +39,11 @@ export async function adjustContent()
 	}
 
 	// Fetch page content
-	const content = await httpGetRequestAsync("/snips/"+snip+getUrlGETQuery());
-	document.getElementById("content").innerHTML = content;
+	if(!dry)
+	{
+		httpGetRequestAsync("/snips/"+snip+getUrlGETQuery()).then((content)=>
+			{document.getElementById("content").innerHTML = content});
+	}
 
 	// Dehighlight all menu items
 	let nav_links = document.getElementsByClassName("nav-link");
@@ -61,4 +77,5 @@ for (let link of nav_links)
 	}
 	link.href = "#"; 
 }
-adjustContent();
+adjustContent(true);
+cacheFetchPages();

@@ -40,11 +40,9 @@
 	);
 
 	if(isset($_GET) &&array_key_exists("page", $_GET))
-	{
 		$page = $_GET["page"];
-		if(!array_key_exists($page, $pages))
-			$page="cover";
-	}
+	else
+		$page = "cover";
 	include($_SERVER["DOCUMENT_ROOT"]."/snips/".$pages[$page]);
 
 ?>
