@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="How many Dagans? Just the one, until the cloner works">
     <meta name="author" content="Dagan Martinez">
+	<link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon/favicon-16x16.png">
 	<meta name="referrer" content="same-origin">
 
     <title>Dagan Martinez - Firmware Developer</title>
