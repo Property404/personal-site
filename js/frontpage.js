@@ -1,6 +1,4 @@
 "use strict";
-import {httpGetRequestAsync, getUrlGETQuery, parseUrlParameters} from '/js/common.mjs'
-const DEFAULT_PAGE = "cover.html"
 const snips = {
 "cover":"cover.html",
 "experience":"experience.html",
@@ -18,7 +16,7 @@ async function cacheFetchPages()
 	{
 		const page = snips[snip];
 		if(page.endsWith(".html"))
-			httpGetRequestAsync("/snips/"+page+"?page="+snip);
+			fetch("/snips/"+page+"?page="+snip);
 	}
 
 }
@@ -26,23 +24,30 @@ async function cacheFetchPages()
 // Adjust content according to URL
 export async function adjustContent(dry=false)
 {
-	let anchor = parseUrlParameters()["page"];
-	if(anchor === undefined && !document.querySelector("#http-error"))
+	const url_query = window.location.search;
+	const url_parameters = new URLSearchParams(url_query);
+
+	let anchor = url_parameters.get("page");
+	if(anchor === null && !document.querySelector("#http-error"))
 		anchor="cover";
 	let snip = snips[anchor]
 
 	if(!snip)
 	{
-		console.log("Note: not replacing content dynamically");
+		console.log("Note: no dynamic content replacement");
 		console.log(anchor);
-		return;
 	}
+
 
 	// Fetch page content
 	if(!dry)
 	{
-		httpGetRequestAsync("/snips/"+snip+getUrlGETQuery()).then((content)=>
-			{document.getElementById("content").innerHTML = content});
+		const url = "/snips/"+snip+url_query
+		fetch(url)
+			.then((response)=>response.text())
+			.then(function(text){
+				document.getElementById("content").innerHTML = text;
+			});
 	}
 
 	// Dehighlight all menu items

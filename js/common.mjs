@@ -8,10 +8,6 @@ export function getUrlAnchor()
 	return query.substring(query.indexOf("#")+1);
 }
 
-export function getUrlGETQuery()
-{
-	return window.location.search;
-}
 // Parse GET parameters in URL
 // Returns a dict
 export function parseUrlParameters(){
