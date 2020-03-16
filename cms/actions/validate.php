@@ -22,7 +22,9 @@
 		// (e.g. a SOCKS5 proxy)
 		$whitelist = array(
 		'127.0.0.1',
-		'::1');
+		'::1',
+		$_SERVER['SERVER_ADDR']
+		);
 
 		if(in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
 			DBAL::addUser($pdo, $username, $password);
