@@ -8,10 +8,6 @@
 	margin-bottom: 2rem;
 }
 
-.masthead-brand {
-	margin-bottom: 0;
-}
-
 .nav-masthead .nav-link {
 	font-weight: 700;
 	color: var(--text-color-alt);
@@ -31,14 +27,6 @@
 .nav-masthead .active {
 	color: var(--text-color);
 	border-bottom-color: var(--underline-color);
-}
-
-@media (min-width: 48em) {
-	.masthead-brand {
-		float: left;
-	}
-	.nav-masthead {
-	}
 }
 
 /*
