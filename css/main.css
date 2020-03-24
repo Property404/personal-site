@@ -8,6 +8,7 @@
 	--text-color-alt: rgba(255, 255, 255, .5);
 	--text-shadow-color:rgba(0,0,0,.5);
 	--bg-color: #333;
+	--bg-color-2: #222;
 	--input-bg-color: #555;
 	--input-fg-color: #fff;
 	--input-border-color: #333;
@@ -20,6 +21,7 @@
 		--text-color: #333;
 		--text-color-alt: rgba(0, 0, 0, .5);
 		--text-shadow-color:rgba(255,255,255,.5);
+		--bg-color-2: #f7f7f7;
 		--bg-color: #f7f7f7;
 		--input-bg-color: #fff;
 		--input-fg-color: #333;
@@ -73,6 +75,7 @@ html,
 body {
 	height: 100%;
 	background-color: var(--bg-color);
+	background-image: radial-gradient(var(--bg-color), var(--bg-color-2));
 	color: var(--text-color);
 }
 
