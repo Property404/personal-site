@@ -11,23 +11,18 @@
 
 	<title>Dagan Martinez - Firmware Developer</title>
 
-	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/main.css" rel="stylesheet">
 	<link href="/css/frontpage.css" rel="stylesheet">
   </head>
 
-  <body class="text-center">
-
-	<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-	  <header class="masthead mb-auto">
-		<div class="inner">
-		  <nav class="nav nav-masthead justify-content-center">
+  <body>
+	  <header class="main-header">
+		  <nav>
 			<a class="nav-link" id="link-cover" href="/?page=cover">Home</a>
 			<a class="nav-link" id="link-skills" href="/?page=skills">Skills</a>
 			<a class="nav-link" id="link-experience" href="/?page=experience">Experience</a>
 			<!--<a class="nav-link" id="link-blog" href="/?page=blog">Blog</a>-->
 		  </nav>
-		</div>
 	  </header>
 
 	  <main id="content" role="main" class="inner cover">
@@ -50,12 +45,9 @@
 ?>
 	  </main>
 
-	  <footer class="mastfoot mt-auto">
-		<div class="inner">
+	  <footer class="main-footer">
 			<p>Copyright &copy; <time datetime="2020">2020</time> Dagan Martinez under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL 3.0</a> license</p>
-		</div>
 	  </footer>
-	</div>
 
 	<script src="/js/frontpage.js" type="module"></script>
   </body>

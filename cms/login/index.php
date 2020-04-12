@@ -19,6 +19,7 @@ if(Session::isAdminSession())
 
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
   </head>
 	<body class="text-center">
 		<form id="form" class="form-signin" action="/cms/actions/validate.php" method="post">

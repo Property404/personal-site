@@ -1,47 +1,108 @@
-/*
- * Header
- */
-.cover-container {
-	max-width: 42em;
-}
-.masthead {
-	margin-bottom: 2rem;
+body{
+	overflow-y:scroll;
+	margin:0;
+	padding:0;
+	
+	/* Taken from Bootstrap */
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+    font-size: 1.25rem;
+    font-weight: 300;
 }
 
-.nav-masthead .nav-link {
+h1{
+	font-size:2.5rem;
+}
+h2{
+	font-size:2rem;
+}
+h3{
+	font-size:1.75rem;
+}
+h4{
+	font-size:1.5rem;
+}
+h1,h2,h3,h4{
+	font-weight:500;
+	line-height: 1.2;
+	margin-top:0;
+	margin-bottom: .5rem;
+}
+p{
+	margin-top:0;
+	margin-bottom: 1rem;
+}
+
+body{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items: center;
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+.cover-container {
+}
+
+.main-header{
+	margin-bottom:1rem;
+}
+
+.main-header .nav-link {
 	font-weight: 700;
 	color: var(--text-color-alt);
 	background-color: transparent;
 	border-bottom: .25rem solid transparent;
+	text-decoration:none;
+	padding:.5rem 1rem;
 }
 
-.nav-masthead .nav-link:hover,
-.nav-masthead .nav-link:focus {
+.main-header .nav-link:hover,
+.main-header .nav-link:focus {
 	border-bottom-color: var(--text-color-alt)
 }
 
-.nav-masthead .nav-link + .nav-link {
-	margin-left: 1rem;
-}
-
-.nav-masthead .active {
+.main-header .active {
 	color: var(--text-color);
 	border-bottom-color: var(--underline-color);
 }
 
-/*
- * Cover
- */
-.cover {
-	padding: 0 1.5rem;
+.main-header nav{
+	padding-top:1rem;
+}
+#content{
+	text-align:center;
+	max-width: 44rem;
 }
 
-/*
- * Footer
- */
-.mastfoot {
+.main-footer {
+	margin-top:1rem;
 	color: var(--text-color-alt);
+	font-size:.9em;
+	text-align:center;
 }
-body{
-	overflow-y:scroll;
+.main-footer a{
+	text-decoration:none;
+}
+
+.flex-column{
+	display:flex;
+	flex-direction: column;
+	flex-wrap:wrap;
+	align-items:center;
+	justify-content:center;
+	align-content:center;
+}
+.flex-row{
+	display:flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	align-content:center;
+}
+.flex-cell{
+	max-width:22rem;
+	margin:0 auto;
 }
