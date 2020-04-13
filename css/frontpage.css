@@ -1,13 +1,21 @@
 body{
+	/* Always show scroll bar, cause otherwise menu shifts around*/
 	overflow-y:scroll;
+
 	margin:0;
 	padding:0;
+	height:100%;
 	
 	/* Taken from Bootstrap */
 	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 
     font-size: 1.25rem;
     font-weight: 300;
+
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	align-items: center;
 }
 
 h1{
@@ -32,21 +40,19 @@ p{
 	margin-top:0;
 	margin-bottom: 1rem;
 }
-
-body{
-	display:flex;
-	flex-direction:column;
-	justify-content:space-between;
-	align-items: center;
-	height:100%;
-	margin:0;
-	padding:0;
+a{
+	text-decoration:none;
+	text-decoration:underline;
+	border-bottom: 1px solid currentColor;
+	text-decoration:none;
+}
+a:hover{
+	border-bottom: 2px solid currentColor;
 }
 
-.cover-container {
-}
 
 .main-header{
+	/* Otherwise the main content header gets to close to the menu */
 	margin-bottom:1rem;
 }
 
@@ -57,6 +63,7 @@ body{
 	border-bottom: .25rem solid transparent;
 	text-decoration:none;
 	padding:.5rem 1rem;
+	font-size:.9em;
 }
 
 .main-header .nav-link:hover,
@@ -64,9 +71,14 @@ body{
 	border-bottom-color: var(--text-color-alt)
 }
 
-.main-header .active {
+.main-header .active,
+.main-header .active:hover,
+.main-header .active:focus
+
+{
 	color: var(--text-color);
 	border-bottom-color: var(--underline-color);
+	outline:0;
 }
 
 .main-header nav{
@@ -83,8 +95,9 @@ body{
 	font-size:.9em;
 	text-align:center;
 }
-.main-footer a{
-	text-decoration:none;
+
+.main-footer a:not(:hover){
+	border-bottom:none;
 }
 
 .flex-column{
