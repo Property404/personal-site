@@ -25,7 +25,7 @@
 		  </nav>
 	  </header>
 
-	  <main id="content" role="main" class="inner cover">
+	  <main id="content" role="main">
 <?php
 	$pages=Array(
 		"cover"=>"cover.html",

@@ -38,24 +38,26 @@
 }
 
 
-/* Links */
 a,
 a:focus,
 a:hover {
 	color: var(--text-color);
 }
 
-
-/*
- * Base structure
- */
-
 html,
 body {
 	height: 100%;
+	margin:0;
+	padding:0;
+}
+body{
+
 	background-color: var(--bg-color);
 	background-image: radial-gradient(var(--bg-color), var(--bg-color-2));
 	color: var(--text-color);
+
+	/* Taken from Bootstrap */
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 body.text-center {
@@ -66,4 +68,11 @@ body.text-center {
 	-webkit-box-pack: center;
 	justify-content: center;
 	text-shadow: 0 .05rem .1rem var(--text-shadow-color);
+}
+
+input,textarea{
+	background-color: var(--input-bg-color);
+	color: var(--input-fg-color);
+	border-color:var(--input-border-color);
+	border-radius:.25rem;
 }

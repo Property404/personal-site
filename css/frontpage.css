@@ -35,10 +35,10 @@ h1,h2,h3,h4{
 	line-height: 1.2;
 	margin-top:0;
 	margin-bottom: .5rem;
+	padding:0rem;
 }
-p{
+p.lead{
 	margin-top:0;
-	margin-bottom: 1rem;
 }
 a{
 	text-decoration:none;
@@ -100,22 +100,15 @@ a:hover{
 	border-bottom:none;
 }
 
-.flex-column{
-	display:flex;
-	flex-direction: column;
-	flex-wrap:wrap;
-	align-items:center;
-	justify-content:center;
-	align-content:center;
-}
-.flex-row{
+.skills{
 	display:flex;
 	flex-direction: row;
 	flex-wrap:wrap;
 	justify-content:space-between;
 	align-content:center;
 }
-.flex-cell{
+.skillgroup{
 	max-width:22rem;
 	margin:0 auto;
+	margin-bottom:.5rem;
 }
