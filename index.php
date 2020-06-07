@@ -46,7 +46,7 @@
 	  </main>
 
 	  <footer class="main-footer">
-			<p>Copyright &copy; <time datetime="2020">2020</time> Dagan Martinez under the <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL 3.0</a> license</p>
+			<p>Copyright &copy; <time datetime="2020">2020</time> Dagan Martinez</p> 
 	  </footer>
 
 	<script src="/js/frontpage.js" type="module"></script>

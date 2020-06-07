@@ -72,7 +72,7 @@ a:hover{
 }
 #content{
 	text-align:center;
-	max-width: 44rem;
+	max-width: 40rem;
 }
 
 .main-footer {
@@ -87,14 +87,21 @@ a:hover{
 }
 
 .skills{
-	display:flex;
-	flex-direction: row;
-	flex-wrap:wrap;
-	justify-content:space-between;
-	align-content:center;
+	display:grid;
+	grid-template-columns:1fr 1fr;
 }
 .skillgroup{
-	max-width:22rem;
+	max-width:20rem;
 	margin:0 auto;
 	margin-bottom:.5rem;
+}
+.skillgroup ul
+{
+	padding:0 .5rem;
+}
+@media(max-width:40rem)
+{
+	.skills{
+		grid-template-columns:1fr;
+	}
 }
