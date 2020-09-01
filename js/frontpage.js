@@ -12,7 +12,7 @@ const snips = {
 // (Tor Browser)
 async function cacheFetchPages()
 {
-	for(let snip in snips)
+	for(const snip in snips)
 	{
 		const page = snips[snip];
 		if(page.endsWith(".html"))
@@ -30,7 +30,7 @@ export async function adjustContent(dry=false)
 	let anchor = url_parameters.get("page");
 	if(anchor === null && !document.querySelector("#http-error"))
 		anchor="cover";
-	let snip = snips[anchor]
+	const snip = snips[anchor]
 
 	if(!snip)
 	{
@@ -50,9 +50,9 @@ export async function adjustContent(dry=false)
 			});
 	}
 
-	// Dehighlight all menu items
-	let nav_links = document.getElementsByClassName("nav-link");
-	for (let link of nav_links)
+	// Dehighlight all menu 
+	const nav_links = document.getElementsByClassName("nav-link");
+	for (const link of nav_links)
 	{
 		link.className="nav-link";
 	}
@@ -61,7 +61,7 @@ export async function adjustContent(dry=false)
 	if(anchor=="post")anchor="blog";
 
 	// Highlight/Underscore selected page in menu
-	let active_link = document.getElementById("link-"+anchor);
+	const active_link = document.getElementById("link-"+anchor);
 	if(active_link)
 		active_link.className="nav-link active"
 }
@@ -70,16 +70,14 @@ export async function adjustContent(dry=false)
 // Since we have javascript, we're not using the PHP fallback
 // that sends us to a new page
 // This makes for a lighter, faster user experience(hopefully)
-let nav_links = document.getElementsByClassName("nav-link");
-for (let link of nav_links)
+const nav_links = document.getElementsByClassName("nav-link");
+for (const link of nav_links)
 {
-
-	link.setAttribute("meta",link.href+"#");
-
-	link.onclick = function(){
-		history.pushState(null,'',this.getAttribute("meta"));
+	link.onclick = function(new_entry){
+		history.pushState(null,'',new_entry);
 		adjustContent()
-	}
+	}.bind(null,link.href+"#");
+
 	link.href = "#"; 
 }
 adjustContent(true);

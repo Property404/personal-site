@@ -13,6 +13,7 @@
 
 	<link href="/css/main.css" rel="stylesheet">
 	<link href="/css/frontpage.css" rel="stylesheet">
+	<script src="/js/frontpage.js" type="module"></script>
   </head>
 
   <body>
@@ -49,6 +50,5 @@
 			<p>Copyright &copy; <time datetime="2020">2020</time> Dagan Martinez</p> 
 	  </footer>
 
-	<script src="/js/frontpage.js" type="module"></script>
   </body>
 </html>
