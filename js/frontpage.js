@@ -3,8 +3,6 @@ const snips = {
 "cover":"cover.html",
 "experience":"experience.html",
 "skills":"skills.html",
-"blog":"blog.php",
-"post":"post.php",
 "http_error":"http_error.php",
 };
 
@@ -56,9 +54,6 @@ export async function adjustContent(dry=false)
 	{
 		link.className="nav-link";
 	}
-
-	// Highlight "blog" when on any blog post
-	if(anchor=="post")anchor="blog";
 
 	// Highlight/Underscore selected page in menu
 	const active_link = document.getElementById("link-"+anchor);
