@@ -1,6 +1,7 @@
 "use strict";
 const snips = {
 "cover":"cover.html",
+"projects":"projects.html",
 "experience":"experience.html",
 "skills":"skills.html",
 "http_error":"http_error.php",

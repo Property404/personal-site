@@ -22,6 +22,7 @@
 			<a class="nav-link" id="link-cover" href="/?page=cover">Home</a>
 			<a class="nav-link" id="link-skills" href="/?page=skills">Skills</a>
 			<a class="nav-link" id="link-experience" href="/?page=experience">Experience</a>
+			<a class="nav-link" id="link-projects" href="/?page=projects">Projects</a>
 		  </nav>
 	  </header>
 
@@ -31,6 +32,7 @@
 		"cover"=>"cover.html",
 		"experience"=>"experience.html",
 		"skills"=>"skills.html",
+		"projects"=>"projects.html",
 		"http_error"=>"http_error.php",
 	);
 

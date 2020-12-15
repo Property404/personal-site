@@ -99,6 +99,18 @@ a:hover{
 {
 	padding:0 .5rem;
 }
+.projects{
+	text-align:center;
+}
+.projects li{
+	list-style:none;
+	margin-bottom:1rem;
+	text-align:center;
+}
+.project-tech{
+	font-style:italic;
+	text-align:center;
+}
 @media(max-width:40rem)
 {
 	.skills{
