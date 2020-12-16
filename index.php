@@ -12,7 +12,6 @@
 	<title>Dagan Martinez - Firmware Developer</title>
 
 	<link href="/css/main.css" rel="stylesheet">
-	<link href="/css/frontpage.css" rel="stylesheet">
 	<script src="/js/frontpage.js" type="module"></script>
   </head>
 
