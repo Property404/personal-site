@@ -164,14 +164,24 @@ a:hover{
 	text-align:center;
 padding:0;
 }
+.projects h3{
+	margin-bottom:0rem;
+}
 .projects li{
 	list-style:none;
-	margin-bottom:1rem;
+	margin-bottom:2.5rem;
 	text-align:center;
 }
-.project-tech{
+.project-links{
 	font-style:italic;
 	text-align:center;
+	margin-top:.15rem;
+	margin-bottom:.5rem;
+	font-size:.75rem;
+}
+.marginizer{
+margin-top:3rem;
+margin-bottom:3rem;
 }
 @media(max-width:40rem)
 {
