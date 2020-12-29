@@ -144,6 +144,7 @@ a:hover{
 }
 
 .main-footer a:not(:hover){
+	color: var(--text-color-alt);
 	border-bottom:non;
 }
 
