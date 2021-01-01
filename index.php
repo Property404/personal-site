@@ -45,7 +45,7 @@
 	  </main>
 
 	  <footer class="main-footer">
-			<p>Follow me on <a href="https://github.com/Property404">GitHub</a> or <a href="https://www.linkedin.com/in/dagan-martinez-57769711a">LinkedIn</a><br>
+			<p><a href="https://github.com/Property404">GitHub</a> | <a href="https://www.linkedin.com/in/dagan-martinez-57769711a">LinkedIn</a><br>
 	  </footer>
 
   </body>
