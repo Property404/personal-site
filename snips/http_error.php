@@ -39,7 +39,7 @@
 	$submessages = Array(
 		"403"=>"The police are on their way",
 		"404"=>"I hope in the future you are able to find what you're looking for",
-		"406"=>'<video height="315" src="/uploads/videos/406.mp4" controls></video>',
+		"406"=>'<video height="315" src="/media/videos/406.mp4" controls></video>',
 		"418"=>"This error should never come up, considering that this website runs on a rice cooker",
 		"503"=>"Hopefully service will be back shortly",
 		"507"=>"I couldn't eat another thing. I'm absolutely stuffed"
