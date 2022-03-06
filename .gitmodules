@@ -1,0 +1,18 @@
+[submodule "projects/BrainfuckDebugger"]
+	path = projects/BrainfuckDebugger
+	url = git@github.com:Property404/BrainfuckDebugger
+[submodule "projects/christmas-coloring-book"]
+	path = projects/christmas-coloring-book
+	url = git@github.com:Property404/christmas-coloring-book
+[submodule "projects/snake"]
+	path = projects/snake
+	url = git@github.com:Property404/snake
+[submodule "projects/color-app"]
+	path = projects/color-app
+	url = git@github.com:Property404/color-app
+[submodule "projects/smbc-fourier-transform"]
+	path = projects/smbc-fourier-transform
+	url = git@github.com:Property404/smbc-fourier-transform
+[submodule "projects/animator"]
+	path = projects/animator
+	url = git@github.com:Property404/animator
