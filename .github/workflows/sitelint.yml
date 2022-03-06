@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Generate SSH key
+        run: yes "" | ssh-keygen -t ed25519 -C "fakeymcfakeface@example.com"
+
       - name: Clone submodules
         run: git submodule update --init --recursive
 
