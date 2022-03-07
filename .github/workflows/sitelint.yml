@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        submodules: true
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Install tools
         run: sudo apt install nodejs npm php
