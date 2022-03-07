@@ -31,4 +31,4 @@ jobs:
         run: php -S 127.0.0.1:8000&
 
       - name: Check for 404's
-        run: linkchecker   http://127.0.0.1:9999
+        run: sleep 1 && linkchecker http://127.0.0.1:8000
