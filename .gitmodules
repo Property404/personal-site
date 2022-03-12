@@ -16,3 +16,6 @@
 [submodule "projects/animator"]
 	path = projects/animator
 	url = git@github.com:Property404/animator
+[submodule "projects/capture-go"]
+	path = projects/capture-go
+	url = git@github.com:Property404/capture-go
