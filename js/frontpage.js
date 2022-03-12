@@ -1,10 +1,10 @@
 "use strict";
 const snips = {
-"cover":"cover.html",
-"projects":"projects.html",
-"experience":"experience.html",
-"skills":"skills.html",
-"http_error":"http_error.php",
+	"cover":"cover.html",
+	"projects":"projects.html",
+	"experience":"experience.html",
+	"skills":"skills.html",
+	"http_error":"http_error.php",
 };
 
 // Hacks to reduce latency for high-latency connections
@@ -29,7 +29,7 @@ export async function adjustContent(dry=false)
 	let anchor = url_parameters.get("page");
 	if(anchor === null && !document.querySelector("#http-error"))
 		anchor="cover";
-	const snip = snips[anchor]
+	const snip = snips[anchor];
 
 	if(!snip)
 	{
@@ -41,7 +41,7 @@ export async function adjustContent(dry=false)
 	// Fetch page content
 	if(!dry)
 	{
-		const url = "/snips/"+snip+url_query
+		const url = "/snips/"+snip+url_query;
 		fetch(url)
 			.then((response)=>response.text())
 			.then(function(text){
@@ -59,7 +59,7 @@ export async function adjustContent(dry=false)
 	// Highlight/Underscore selected page in menu
 	const active_link = document.getElementById("link-"+anchor);
 	if(active_link)
-		active_link.className="nav-link active"
+		active_link.className="nav-link active";
 }
 
 // Get rid of GET parts of URL links
@@ -70,8 +70,8 @@ const nav_links = document.getElementsByClassName("nav-link");
 for (const link of nav_links)
 {
 	link.onclick = function(new_entry){
-		history.pushState(null,'',new_entry);
-		adjustContent()
+		history.pushState(null,"",new_entry);
+		adjustContent();
 	}.bind(null,link.href+"#");
 
 	link.href = "#"; 
