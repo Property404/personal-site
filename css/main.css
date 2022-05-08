@@ -98,15 +98,25 @@ a:hover {
 .main-header {
 	/* Otherwise the main content header gets too close to the menu */
 	margin-bottom: 1rem;
+	width:100%;
+}
+
+.main-header nav {
+	display: flex;
+	flex-direction:row;
+	width:100%;
+	justify-content: space-around;
 }
 
 .main-header .nav-link {
+	display: block;
 	font-weight: 700;
 	color: var(--text-color-alt);
 	background-color: transparent;
 	border-bottom: 0.25rem solid transparent;
 	text-decoration: none;
-	padding: 0.5rem 1rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 }
 
 .main-header .nav-link:hover,
@@ -144,8 +154,9 @@ a:hover {
 
 .skills {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 }
+
 .skillgroup {
 	max-width: 20rem;
 	margin: 0 auto;
@@ -177,8 +188,20 @@ a:hover {
 	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
-@media (max-width: 40rem) {
+
+@media (min-width: 40rem) {
+	.main-header .nav-link {
+		padding-right: 1rem;
+		padding-left: 1rem;
+		display: inline;
+	}
+	.main-header nav {
+		display: block;
+	}
+	.main-header {
+		width: auto;
+	}
 	.skills {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr;
 	}
 }
