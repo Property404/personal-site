@@ -21,11 +21,17 @@ jobs:
       - name: Install tools
         run: sudo apt install nodejs npm php
 
-      - name: Install linkchecker
-        run: pip3 install --user linkchecker
+      - name: Install packages
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
 
       - name: Set up projects directory
         run: ./setup.bash
+
+      - name: Install linkchecker
+        run: pip3 install --user linkchecker
 
       - name: Run site
         run: php -S 127.0.0.1:8000&
