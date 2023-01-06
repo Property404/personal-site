@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/png" sizes="16x16" href="/media/favicon/favicon-16x16.png">
 	<meta name="referrer" content="same-origin">
 
-	<title>Dagan Martinez - Firmware Developer</title>
+	<title>Dagan Martinez - Software Engineer</title>
 
 	<link href="/css/main.css" rel="stylesheet">
 	<script src="/js/frontpage.js" type="module"></script>
