@@ -123,14 +123,13 @@ a:hover {
     padding-bottom: 0.5rem;
 }
 
-.main-header .nav-link:hover,
-.main-header .nav-link:focus {
+.main-header .nav-link:hover {
     border-bottom-color: var(--text-color-alt);
 }
 
+.main-header .nav-link:focus,
 .main-header .active,
-.main-header .active:hover,
-.main-header .active:focus {
+.main-header .active:hover {
     color: var(--text-color);
     border-bottom-color: var(--underline-color);
     outline: 0;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="How many Dagans? Just the one, until the cloner works">
+	<meta name="author" content="Dagan Martinez">
+	<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" size="16x16" href="/static/favicon/favicon-16x16.png">
+	<meta name="referrer" content="same-origin">
+
+	<title>Dagan Martinez - Software Engineer</title>
+
+	<link href="/static/main.css" rel="stylesheet">
+    <script src="/static/frontpage.js" defer></script>
+  </head>
+
+  <body>
+	  <header class="main-header">
+		  <nav>
+            <a class="nav-link {{ index_active }}" id="link-index" href="/">Home</a>
+            <a class="nav-link {{ skills_active }}" id="link-skills" href="/skills.html">Skills</a>
+            <a class="nav-link {{ experience_active}}" id="link-experience" href="/experience.html">Experience</a>
+            <a class="nav-link {{ projects_active }}" id="link-projects" href="/projects.html">Projects</a>
+		  </nav>
+	  </header>
+
+	  <main id="content" role="main">
+        {{ content | safe }}
+	  </main>
+
+	  <footer class="main-footer">
+			<p><a href="https://github.com/Property404">GitHub</a> | <a href="https://www.linkedin.com/in/dagan-martinez-57769711a">LinkedIn</a><br>
+	  </footer>
+  </body>
+</html>

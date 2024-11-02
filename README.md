@@ -2,6 +2,27 @@
 
 Site hosted at <https://dagans.dev>
 
+## Install build dependencies
+
+### Required dependencies:
+
+* `npm` 
+* `git`
+* `bash`
+* `rustup` (install with `curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh`)
+
+### Optional dependencies:
+
+* `python`
+
+### Install rust tools and targets:
+
+```
+cargo install wasm-pack
+cargo install minijinja-cli
+rustup target add wasm32-unknown-unknown
+```
+
 ## Hosting locally
 
 ```bash
@@ -11,8 +32,7 @@ $ cd personal-site
 ...
 $ ./setup.bash
 ...
-$ php -S 127.0.0.1:8000
-PHP 8.0.16 Development Server (http://127.0.0.1:8000) started
+python3 -m http.server -d dist/
 ```
 
 ## License

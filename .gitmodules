@@ -19,3 +19,6 @@
 [submodule "projects/capture-go"]
 	path = projects/capture-go
 	url = git@github.com:Property404/capture-go
+[submodule "projects/its-a-unix-system"]
+	path = projects/its-a-unix-system
+	url = git@github.com:Property404/its-a-unix-system

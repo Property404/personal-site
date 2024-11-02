@@ -2,12 +2,14 @@
 !*.js
 !*.mjs
 !*.css
+!*.jinja
 !*.html
-!*.php
 !.gitignore
 !.stylelintrc.json
 !package.json
 !package-lock.json
+!projects/*
 !**/**/
 node_modules
 uploads
+dist
