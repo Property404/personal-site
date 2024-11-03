@@ -4,18 +4,19 @@ Site hosted at <https://dagans.dev>
 
 ## Install build dependencies
 
-### Required dependencies:
+### Required dependencies
 
-* `npm` 
+* `npm`
 * `git`
 * `bash`
-* `rustup` (install with `curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh`)
+* `rustup`
+  (install with `curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh`)
 
-### Optional dependencies:
+### Optional dependencies
 
 * `python`
 
-### Install rust tools and targets:
+### Install rust tools and targets
 
 ```
 cargo install wasm-pack
