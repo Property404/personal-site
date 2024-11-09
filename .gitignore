@@ -4,6 +4,7 @@
 !*.css
 !*.jinja
 !*.html
+!*.yml
 !.gitignore
 !.stylelintrc.json
 !package.json

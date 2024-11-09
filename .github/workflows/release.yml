@@ -1,0 +1,29 @@
+---
+name: Release CI
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: cargo install minijinja-cli
+      - name: Build
+        run: ./setup.bash
+      - name: Tar dist
+        run: tar -czf personal-site.tar.gz dist/
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: personal-site.tar.gz
+          generateReleaseNotes: true
+          body: Look at me I'm a release haha
