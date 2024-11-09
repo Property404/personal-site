@@ -16,7 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: cargo install minijinja-cli
+        run: |
+          sudo apt install nodejs npm
+          cargo install minijinja-cli
       - name: Build
         run: ./setup.bash
       - name: Tar dist
