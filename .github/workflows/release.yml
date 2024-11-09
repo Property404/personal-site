@@ -19,6 +19,8 @@ jobs:
         run: |
           sudo apt install nodejs npm
           cargo install minijinja-cli
+      - name: Install packages
+        run: npm ci
       - name: Build
         run: ./setup.bash
       - name: Tar dist
