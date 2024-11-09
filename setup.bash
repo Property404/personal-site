@@ -36,17 +36,15 @@ npm run build
 popd
 cp -r smbc-fourier-transform/dist ../dist/projects/smbc-fourier-transform
 
-pushd its-a-unix-system
-wasm-pack build --no-default-features
-pushd www
-npm install
-npm run build
-popd
-popd
-cp -r its-a-unix-system/www/dist ../dist/projects/its-a-unix-system
-
 cp -r animator ../dist/projects/
 cp -r capture-go ../dist/projects/
 cp -r snake ../dist/projects/
 
+popd
+
+mkdir -p dist/projects/its-a-unix-system
+pushd dist/projects/its-a-unix-system
+wget https://github.com/Property404/its-a-unix-system/releases/download/0.1.1/its-a-unix-system.tar.gz
+tar xf its-a-unix-system.tar.gz
+rm its-a-unix-system.tar.gz
 popd
