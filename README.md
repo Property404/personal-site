@@ -9,7 +9,7 @@ Site hosted at <https://dagans.dev>
 * `npm`
 * `git`
 * `bash`
-* `rustup`
+* `cargo`
   (install with `curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh`)
 
 ### Optional dependencies
@@ -19,9 +19,7 @@ Site hosted at <https://dagans.dev>
 ### Install rust tools and targets
 
 ```
-cargo install wasm-pack
 cargo install minijinja-cli
-rustup target add wasm32-unknown-unknown
 ```
 
 ## Hosting locally
