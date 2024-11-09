@@ -36,7 +36,7 @@ jobs:
         run: pip3 install --user linkchecker
 
       - name: Run site
-        run: php -S 127.0.0.1:8000&
+        run: cd dist && php -S 127.0.0.1:8000&
 
       - name: Check for 404's
         run: sleep 1 && linkchecker http://127.0.0.1:8000
